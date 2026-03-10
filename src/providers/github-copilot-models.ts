@@ -39,5 +39,12 @@ export function buildCopilotModelDefinition(modelId: string): ModelDefinitionCon
     cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 },
     contextWindow: DEFAULT_CONTEXT_WINDOW,
     maxTokens: DEFAULT_MAX_TOKENS,
+    // Required for GitHub Copilot Enterprise/Business (see issue #1797)
+    headers: {
+      "User-Agent": "GitHubCopilotChat/0.35.0",
+      "Editor-Version": "vscode/1.107.0",
+      "Editor-Plugin-Version": "copilot-chat/0.35.0",
+      "Copilot-Integration-Id": "vscode-chat",
+    },
   };
 }
